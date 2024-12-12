@@ -37,3 +37,4 @@ Normalement le projet contient tous les scripts nécessaires pour le build et le
 
 Créer un dépot git public et envoyer le lien par mail à l'adresse sur community.
 # secret-santa
+ 
