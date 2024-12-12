@@ -15,7 +15,7 @@ Vous pouvez également utiliser la librairie javascript [**motion.dev**](https:/
 
 Téléchargez le projet, puis installez les dépendances :
 
-```bash
+```bash 
 npm install
 ```
 
