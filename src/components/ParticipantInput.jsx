@@ -23,9 +23,11 @@ export function ParticipantInput({
   };
 
   return (
-    <div className="space-y-4">
-      // Champs de saisie pour ajouter un participant
-      <div className="flex space-x-2">
+    <div className="flex flex-col items-center space-y-4 p-10 rounded-3xl bg-secondary ">
+      
+      <h2 className="text-2xl pb-9 text-primary font-bold" >Ajoutez les participants</h2>
+      <h3 className="text-lg text-white" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)' }}>Ajouter un participant</h3>
+      <div className="flex space-x-2 bg-gray-100 p-4 rounded-3xl border-4 border-white-500">
         <input
           type="text"
           className="input flex-grow"
@@ -38,10 +40,10 @@ export function ParticipantInput({
           Ajouter
         </button>
       </div>
-      // Liste des participants ajoutés
+      <h3 className="text-lg pt-9 text-white" style={{ textShadow: '1px 1px 2px rgba(0, 0, 0, 0.5)' }}>Participants</h3>
       <ul className="space-y-2">
         {participants.map((name, index) => (
-          <li key={index} className="list-item">
+          <li key={index} className="list-item w-40 rounded-3xl bg-white p-4 text-black border-4 border-white-500">
             {name}
             <div className="space-x-2">
               <button

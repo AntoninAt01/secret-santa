@@ -3,6 +3,9 @@ import { WelcomeScreen } from "./components/WelcomeScreen";
 import { ParticipantInput } from "./components/ParticipantInput";
 import { AssignmentDisplay } from "./components/AssignmentDisplay";
 
+import React from 'react';
+import { SnowfallEffect } from './components/Anim'; // Chemin vers ton fichier
+
 export default function App() {
   // Tableau des participants
   const [participants, setParticipants] = useState([]);
@@ -51,39 +54,33 @@ export default function App() {
   };
 
   return (
-    <div className="container mx-auto p-4">
-      <div>
-        // affiche l'écran en fonction de l'état de l'application // WELCOME
+    <div className="container mx-auto p-4 bg-cover bg-center">
+      <SnowfallEffect />
+      <div className="flex flex-col items-center space-y-6">
         {currentScreen === "welcome" && (
           <WelcomeScreen onStart={() => setCurrentScreen("input")} />
         )}
-        // INPUT
         {currentScreen === "input" && (
           <>
-            <h2 className="text-2xl font-bold mb-6 text-center">
-              Ajoutez les participants
-            </h2>
+            <h2 className="text-6xl pb-20 pt-20 font-copu font-bold text-white">Secret Santa</h2>
             <ParticipantInput
               onAddParticipant={addParticipant}
               participants={participants}
               onRemoveParticipant={removeParticipant}
             />
-            <div className="mt-6">
-              <button className="button w-full" onClick={distributeGifts}>
+            <div className="flex mt-6 w-64 h-10 bg-red items-center rounded-4xl">
+              <button className="button w-full text-white" onClick={distributeGifts}>
                 Distribuer les cadeaux
               </button>
             </div>
           </>
         )}
-        // ASSIGNMENTS
         {currentScreen === "assignments" && (
           <>
-            <h2 className="text-2xl font-bold mb-6 text-center">
-              Attributions des cadeaux
-            </h2>
+            <h2 className="text-6xl pb-20 pt-20 font-copu font-bold text-white">Secret Santa</h2>
             <AssignmentDisplay assignments={assignments} />
             <div className="mt-6">
-              <button className="button w-full" onClick={resetApp}>
+              <button className="button text-lg px-8 py-3 bg-gray-100 rounded-3xl shadow-lg shadow-black" onClick={resetApp}>
                 Recommencer
               </button>
             </div>

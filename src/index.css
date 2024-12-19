@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -15,5 +16,56 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+
+}
+
+@theme {
+  --font-copu: Lilita One, cursive;
+  --color-white: #ffff;
+  --color-gray-100: #f7fafc;
+  --color-black: #000;
+  --color-red: #C30F24;
+  --color-primary: #3B8344;
+  --color-primary2: #58CB67;
+  --color-secondary: #64CE74;
+  --radial: radial-gradient(circle, #3B8344 0%, #58CB67 100%);
+  --color-linear: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary2) 100%);
+}
+
+@layer base {
+  body {
+    background: radial-gradient(circle, #58CB67 0%, #3B8344 100%);
+  }
+}
+
+/* Conteneur des flocons */
+.snowflakes-container {
+  position: fixed;  /* Fixer le conteneur en haut de la page */
+  top: 0;           /* Positionner en haut */
+  left: 0;          /* Aligner à gauche */
+  right: 0;         /* Aligner à droite */
+  z-index: 9999;    /* S'assurer que les flocons apparaissent au-dessus de tout autre contenu */
+  pointer-events: none; /* Empêcher les flocons d'interférer avec les interactions utilisateur */
+  width: 100vw;     /* Utiliser toute la largeur de la fenêtre */
+  height: 100vh;    /* Utiliser toute la hauteur de la fenêtre */
+  overflow: hidden; /* Masquer tout contenu qui déborde du conteneur */
+}
+
+/* Flocons de neige avec animation */
+.snowflake {
+  position: absolute;
+  pointer-events: none; /* Les flocons ne doivent pas interférer avec les clics */
+  opacity: 0.8; /* Opacité pour donner un effet plus réaliste */
+  animation-name: fall;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  transform: rotate(0deg); /* Ne pas faire tourner les flocons par défaut */
+}
+
+/* Animation de la chute des flocons */
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg); /* Faire tomber le flocon et le faire tourner pendant sa descente */
   }
 }
